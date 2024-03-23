@@ -2,7 +2,9 @@ package com.softulp.tp2;
 
 import android.app.Application;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.helper.widget.Layer;
@@ -15,15 +17,22 @@ import java.util.ArrayList;
 
 public class MainActivityViewModel extends AndroidViewModel {
 private ArrayList<Inmueble> listaInmuebles;
-private ActivityMainBinding binding;
+//private MutableLiveData<ArrayList<Inmueble>> mutableListaInmuebles ;
+private MutableLiveData<ArrayAdapter<Inmueble>> mutableAdapter;
+
 private  LayoutInflater li;
-    public MainActivityViewModel(@NonNull Application application,LayoutInflater li, ActivityMainBinding binding) {
+    public MainActivityViewModel(@NonNull Application application,LayoutInflater li) {
         super(application);
-        this.binding=binding;
         this.li=li;
         listaInmuebles=new ArrayList<>();
         cargarDatos();
-        generarListView();
+    }
+
+    public MutableLiveData<ArrayAdapter<Inmueble>> getMutableAdapter() {
+        if(mutableAdapter==null){
+            mutableAdapter = new MutableLiveData<>();
+        }
+        return mutableAdapter;
     }
 
     public void cargarDatos(){
@@ -31,8 +40,8 @@ private  LayoutInflater li;
         listaInmuebles.add(new Inmueble(R.drawable.takamurao,"Ipoland",200f));
         listaInmuebles.add(new Inmueble(R.drawable.takamurao0,"TakamuraLand",200f));
     }
-    public void generarListView(){
+    public void getAdapter(){
         ArrayAdapter<Inmueble> adapter=new ListaAdapter(getApplication(),R.layout.item,listaInmuebles, li);
-        binding.lvLista.setAdapter(adapter);
+        mutableAdapter.setValue(adapter);
     }
 }
