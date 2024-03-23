@@ -25,12 +25,15 @@ private  LayoutInflater li;
         super(application);
         this.li=li;
         listaInmuebles=new ArrayList<>();
-        cargarDatos();
+        //cargarDatos();
     }
 
     public MutableLiveData<ArrayAdapter<Inmueble>> getMutableAdapter() {
         if(mutableAdapter==null){
             mutableAdapter = new MutableLiveData<>();
+            cargarDatos();
+            ArrayAdapter<Inmueble> adapter=new ListaAdapter(getApplication(),R.layout.item,listaInmuebles, li);
+            mutableAdapter.setValue(adapter);
         }
         return mutableAdapter;
     }
@@ -40,8 +43,5 @@ private  LayoutInflater li;
         listaInmuebles.add(new Inmueble(R.drawable.takamurao,"Ipoland",200f));
         listaInmuebles.add(new Inmueble(R.drawable.takamurao0,"TakamuraLand",200f));
     }
-    public void getAdapter(){
-        ArrayAdapter<Inmueble> adapter=new ListaAdapter(getApplication(),R.layout.item,listaInmuebles, li);
-        mutableAdapter.setValue(adapter);
-    }
+
 }

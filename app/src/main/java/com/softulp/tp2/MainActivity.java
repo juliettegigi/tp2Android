@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 binding.lvLista.setAdapter(inmuebleArrayAdapter);
             }
         });
-        vm.getAdapter();
+       // vm.getAdapter();
 
     }
 }
