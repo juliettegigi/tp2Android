@@ -1,16 +1,14 @@
-package com.softulp.tp2;
+package com.softulp.tp2.activities;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 
+import com.softulp.tp2.viewModels.MainActivityViewModel;
 import com.softulp.tp2.databinding.ActivityMainBinding;
+import com.softulp.tp2.entidades.Inmueble;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;

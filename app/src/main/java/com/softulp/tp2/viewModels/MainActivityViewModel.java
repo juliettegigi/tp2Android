@@ -1,17 +1,16 @@
-package com.softulp.tp2;
+package com.softulp.tp2.viewModels;
 
 import android.app.Application;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.helper.widget.Layer;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.softulp.tp2.databinding.ActivityMainBinding;
+import com.softulp.tp2.entidades.ListaAdapter;
+import com.softulp.tp2.R;
+import com.softulp.tp2.entidades.Inmueble;
 
 import java.util.ArrayList;
 
@@ -32,7 +31,7 @@ private  LayoutInflater li;
         if(mutableAdapter==null){
             mutableAdapter = new MutableLiveData<>();
             cargarDatos();
-            ArrayAdapter<Inmueble> adapter=new ListaAdapter(getApplication(),R.layout.item,listaInmuebles, li);
+            ArrayAdapter<Inmueble> adapter=new ListaAdapter(getApplication(), R.layout.item,listaInmuebles, li);
             mutableAdapter.setValue(adapter);
         }
         return mutableAdapter;

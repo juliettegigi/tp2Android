@@ -1,4 +1,4 @@
-package com.softulp.tp2;
+package com.softulp.tp2.entidades;
 
 public class Inmueble {
     private int img;

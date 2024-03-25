@@ -1,4 +1,4 @@
-package com.softulp.tp2;
+package com.softulp.tp2.entidades;
 
 
 
@@ -14,7 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-import com.softulp.tp2.databinding.ItemBinding;
+import com.softulp.tp2.R;
+import com.softulp.tp2.entidades.Inmueble;
 
 import java.util.List;
 
