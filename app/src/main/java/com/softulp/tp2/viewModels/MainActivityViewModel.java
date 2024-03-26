@@ -19,10 +19,9 @@ private ArrayList<Inmueble> listaInmuebles;
 //private MutableLiveData<ArrayList<Inmueble>> mutableListaInmuebles ;
 private MutableLiveData<ArrayAdapter<Inmueble>> mutableAdapter;
 
-private  LayoutInflater li;
-    public MainActivityViewModel(@NonNull Application application,LayoutInflater li) {
+
+    public MainActivityViewModel(@NonNull Application application) {
         super(application);
-        this.li=li;
         listaInmuebles=new ArrayList<>();
         //cargarDatos();
     }
@@ -31,16 +30,17 @@ private  LayoutInflater li;
         if(mutableAdapter==null){
             mutableAdapter = new MutableLiveData<>();
             cargarDatos();
-            ArrayAdapter<Inmueble> adapter=new ListaAdapter(getApplication(), R.layout.item,listaInmuebles, li);
+            ArrayAdapter<Inmueble> adapter=new ListaAdapter(getApplication(), R.layout.item,listaInmuebles);
             mutableAdapter.setValue(adapter);
         }
         return mutableAdapter;
     }
 
     public void cargarDatos(){
-        listaInmuebles.add(new Inmueble(R.drawable.juli,"Juliland",200f));
-        listaInmuebles.add(new Inmueble(R.drawable.takamurao,"Ipoland",200f));
-        listaInmuebles.add(new Inmueble(R.drawable.takamurao0,"TakamuraLand",200f));
+        listaInmuebles.add(new Inmueble(R.drawable.cassa,"Juliland",200f));
+        listaInmuebles.add(new Inmueble(R.drawable.cassa2,"Ipoland",200f));
+        listaInmuebles.add(new Inmueble(R.drawable.cassa3,"TakamuraLand",200f));
+        listaInmuebles.add(new Inmueble(R.drawable.cassa4,"TakamuraLand",200f));
     }
 
 }

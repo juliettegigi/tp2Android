@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        vm=new MainActivityViewModel(getApplication(),getLayoutInflater());
+        vm=new MainActivityViewModel(getApplication());
 
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

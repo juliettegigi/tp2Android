@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/viImg"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,16 +23,17 @@
         android:text="tvPrecio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/viImg"
-        app:layout_constraintTop_toBottomOf="@+id/tvDireccion" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDireccion"
+        app:layout_constraintVertical_bias="0.553" />
 
     <ImageView
         android:id="@+id/viImg"
-        android:layout_width="93dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="231dp"
+        android:layout_height="292dp"
+        android:layout_marginStart="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473"
+        app:layout_constraintVertical_bias="0.143"
         app:srcCompat="@drawable/ic_launcher_background" />
 </androidx.constraintlayout.widget.ConstraintLayout>

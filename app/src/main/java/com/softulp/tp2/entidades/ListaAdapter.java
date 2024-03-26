@@ -15,46 +15,47 @@ import androidx.annotation.Nullable;
 
 
 import com.softulp.tp2.R;
+import com.softulp.tp2.databinding.ItemBinding;
 import com.softulp.tp2.entidades.Inmueble;
+
+import org.xmlpull.v1.XmlPullParser;
 
 import java.util.List;
 
-public class ListaAdapter extends ArrayAdapter {
+public class ListaAdapter extends ArrayAdapter<Inmueble> {
     private Context context;
     private List<Inmueble> lista;
     private LayoutInflater li;
 
 
-    public ListaAdapter(@NonNull Context context, int resource, @NonNull List objects, LayoutInflater li) {
+    public ListaAdapter(@NonNull Context context, int resource, @NonNull List objects) {
         super(context, resource, objects);
         this.context=context;
         this.lista=objects;
-        this.li=li;
+        this.li=LayoutInflater.from(context);
 
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        // recibe una posicion de la lista de inmueble, el item, el padre del item que es la listView
-        //Este método retorna la vista del item, el layout del item
-        View itemView=convertView;// el item, el layout
-        if(itemView==null) {
-            itemView=li.inflate(R.layout.item,parent,false);//
+    public View getView(int position, @Nullable View itemView, @NonNull ViewGroup listView) {
+
+        ItemBinding binding;
+        if (itemView == null) {
+            binding = ItemBinding.inflate(li, listView, false);
+        } else {
+            binding = ItemBinding.bind(itemView);
         }
 
-        Inmueble inmueble=lista.get(position);
+        Inmueble inmueble = lista.get(position);
+        binding.viImg.setImageResource(inmueble.getImg());
+        binding.tvDireccion.setText(inmueble.getDireccion());
+        binding.tvPrecio.setText(String.valueOf(inmueble.getPrecio()));
 
-        // tengo que crear cada elemento del item, la iv y los 2 tv
-        ImageView foto=itemView.findViewById(R.id.viImg);
-        foto.setImageResource(inmueble.getImg());// le seteo la imagen pasandole el id de la foto;
+        return binding.getRoot();
+    }
 
-        TextView tvDireccion=itemView.findViewById(R.id.tvDireccion);
-        tvDireccion.setText(inmueble.getDireccion());
-
-        TextView tvPrecio=itemView.findViewById(R.id.tvPrecio);
-        tvPrecio.setText(inmueble.getPrecio()+"");
-
-        return itemView;
+    public int getCount(){
+        return lista.size();
     }
 }
